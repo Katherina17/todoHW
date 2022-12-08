@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/todoHW/static/css/main.ab1e6335.css",
+    "main.js": "/todoHW/static/js/main.a12ff647.js",
+    "static/js/787.66cb4309.chunk.js": "/todoHW/static/js/787.66cb4309.chunk.js",
+    "static/media/avatar.png": "/todoHW/static/media/avatar.d947cb9d0d13765666b6.png",
+    "index.html": "/todoHW/index.html",
+    "main.ab1e6335.css.map": "/todoHW/static/css/main.ab1e6335.css.map",
+    "main.a12ff647.js.map": "/todoHW/static/js/main.a12ff647.js.map",
+    "787.66cb4309.chunk.js.map": "/todoHW/static/js/787.66cb4309.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ab1e6335.css",
+    "static/js/main.a12ff647.js"
+  ]
+}
