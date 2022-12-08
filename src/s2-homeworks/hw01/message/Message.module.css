@@ -1,31 +1,91 @@
-.message {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
+:root{
+    --font-family: 'Montserrat', sans-serif;
+}
+
+.message {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 34px;
+    background: #00cc22;
+    flex-direction: column;
 }
 
 .imageAndText {
-
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 47px;
 }
 
 .imageAndText img {
-
+    width: 48px;
+    height: 48px;
 }
 
 .text {
-
+    background-color: #0066CC;
+    margin-right: 0.5rem;
+    border-radius: 0.8rem;
+    height: auto;
+    max-width: 37.64rem;
+    min-width: 10rem;
 }
 
 .text:after {
+    content: "";
+    border-bottom: 20px solid  green;
+    border-right: 20px solid transparent;
+    vertical-align: middle;
+
+
+
 
 }
 
 .name {
-
+    font-family: var(--font-family);
+    font-size: 18px;
+    line-height: 22px;
+    text-align: end;
+    color: white;
+    font-weight: 600;
+    margin: 0 auto;
+    padding: 8px 25px 0px 0px;
 }
 
 .messageText {
-
+    display: block;
+    color: white;
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    padding: 3px 25px 8px 13px;
+    text-align: end;
 }
 
-.time {
+pre{
+    white-space: pre-wrap;
+    word-break: break-all;
+}
 
+
+.time {
+    font-size: 10px;
+    line-height: 12px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    text-align: center;
+}
+
+.imageAndTime{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 2.2rem;
+}
+
+.imageAndTime img{
+    margin-bottom: 6px;
 }
