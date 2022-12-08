@@ -1,11 +1,13 @@
 import React from 'react'
 import s from './App.module.css'
 import HW1 from '../s2-homeworks/hw01/HW1'
+import {BorderTitle} from "../s2-homeworks/hw01/border-title/BorderTitle";
 
 function App() {
     return (
         <div className={s.App}>
             <HW1/>
+            <BorderTitle/>
             {/*раскомментировать по ходу выполнения*/}
             {/*<HW2/>*/}
             {/*<HW3/>*/}
