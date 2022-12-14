@@ -29,3 +29,14 @@
     font-weight: 900;
     cursor: pointer;
 }
+
+.nameClass{
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    display: inline-block;
+    width: 80%;
+    padding-left: 14px;
+
+}
