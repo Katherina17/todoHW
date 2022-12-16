@@ -13,9 +13,9 @@ import {BorderTitle} from "../hw01/border-title/BorderTitle";
 * 6 - дописать тип и логику функции deleteAffairCallback
 * 7 - в файле Affairs.tsx дописать типизацию пропсов +
 * 8 - в файле Affairs.tsx дописать логику функций setAll, setHigh, setMiddle, setLow +
-* 9 - в файле Affair.tsx дописать типизацию пропсов
+* 9 - в файле Affair.tsx дописать типизацию пропсов +
 * 10 - в файле Affair.tsx дописать функции deleteCallback и использовать
-* 11 - в файле Affair.tsx отобразить приходящие данные
+* 11 - в файле Affair.tsx отобразить приходящие данные +
 * */
 
 // types
@@ -47,19 +47,17 @@ export const filterAffairs = (affairs: Array<AffairType>, filter: FilterType): A
             return affairs.filter(a => a.priority === 'high');
         default: return affairs;
     }
-
-     // need to fix
 }
-export const deleteAffair = (affairs: Array<AffairType>, _id: number): Array<AffairType> => { // need to fix any
+export const deleteAffair = (affairs: Array<AffairType>, _id: number): Array<AffairType> => {
     return affairs.filter(a => a._id !== _id); // need to fix
 }
 
 function HW2() {
-    const [affairs, setAffairs] = useState<Array<AffairType>>(defaultAffairs) // need to fix any
+    const [affairs, setAffairs] = useState<Array<AffairType>>(defaultAffairs)
     const [filter, setFilter] = useState<FilterType>('all')
 
     const filteredAffairs = filterAffairs(affairs, filter)
-    const deleteAffairCallback = (_id: number) => { // need to fix any
+    const deleteAffairCallback = (_id: number) => {
        setAffairs(deleteAffair(affairs, _id));
     }
 
