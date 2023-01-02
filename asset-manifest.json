@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/todoHW/static/css/main.df096559.css",
-    "main.js": "/todoHW/static/js/main.475fab57.js",
+    "main.css": "/todoHW/static/css/main.06da7481.css",
+    "main.js": "/todoHW/static/js/main.a9c3c69f.js",
     "static/js/787.66cb4309.chunk.js": "/todoHW/static/js/787.66cb4309.chunk.js",
     "static/media/avatar.png": "/todoHW/static/media/avatar.d947cb9d0d13765666b6.png",
+    "static/media/checked.svg": "/todoHW/static/media/checked.b75ca55e8759862b4083.svg",
     "index.html": "/todoHW/index.html",
-    "main.df096559.css.map": "/todoHW/static/css/main.df096559.css.map",
-    "main.475fab57.js.map": "/todoHW/static/js/main.475fab57.js.map",
+    "main.06da7481.css.map": "/todoHW/static/css/main.06da7481.css.map",
+    "main.a9c3c69f.js.map": "/todoHW/static/js/main.a9c3c69f.js.map",
     "787.66cb4309.chunk.js.map": "/todoHW/static/js/787.66cb4309.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.df096559.css",
-    "static/js/main.475fab57.js"
+    "static/css/main.06da7481.css",
+    "static/js/main.a9c3c69f.js"
   ]
 }
