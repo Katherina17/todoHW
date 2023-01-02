@@ -1,5 +1,6 @@
 import React from 'react'
 import s2 from '../../s1-main/App.module.css'
+import { BorderTitle } from '../hw01/border-title/BorderTitle'
 import Stand from './Stand'
 
 /*
@@ -11,8 +12,9 @@ import Stand from './Stand'
 
 const HW4 = () => {
     return (
-        <div id={'hw4'}>
-            <div className={s2.hwTitle}>Homework #4</div>
+        <div id={'hw4'} className={s2.hw4}>
+            <div className={s2.hwTitle} id={s2.wrapper}>Homework #4</div>
+            <BorderTitle/>
             {/*демонстрация возможностей компонент:*/}
             <div className={s2.hw}>
                 <Stand />

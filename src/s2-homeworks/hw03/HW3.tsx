@@ -21,11 +21,11 @@ import {BorderTitle} from "../hw01/border-title/BorderTitle";
 
 // types
 export type UserType = {
-    _id: string // need to fix any
-    name: string // need to fix any
+    _id: string 
+    name: string 
 }
 
-export const pureAddUserCallback = (name: string, setUsers: (users:UserType[]) => void, users: Array <UserType>) => { // need to fix any
+export const pureAddUserCallback = (name: string, setUsers: (users:UserType[]) => void, users: Array <UserType>) => {
     const user: UserType = {
         _id: v1(),
         name: name// need to fixS
@@ -35,9 +35,9 @@ export const pureAddUserCallback = (name: string, setUsers: (users:UserType[]) =
 
 const HW3 = () => {
 
-    const [users, setUsers] = useState<Array<UserType>>([]) // need to fix any
+    const [users, setUsers] = useState<Array<UserType>>([]) 
 
-    const addUserCallback = (name: string) => { // need to fix any
+    const addUserCallback = (name: string) => { 
         pureAddUserCallback(name, setUsers, users)
     }
 
