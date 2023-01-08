@@ -3,21 +3,25 @@
     height: 100%;
     position: absolute;
     z-index: 2;
-    display: flex;
     flex-direction: column;
     padding: 16px 24px 0 0;
     width: 22.65rem;
-
+    display: none;
 }
 
 .sidebar.open {
-    background: #00cc22;
+    display: flex;
+    transition: all 0.5s ease-in-out;
 }
 
 .background {
-    background-color: black;
+    background: black;
     opacity: 0.3;
-
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: 1;
 }
 
 .nav {

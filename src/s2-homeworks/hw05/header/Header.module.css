@@ -1,5 +1,4 @@
 .burgerMenuIcon {
-    background: black;
 }
 
 .header {
@@ -10,6 +9,7 @@
     width: 100%;
     align-items: center;
 }
+
 
 .header h1 {
     font-weight: 600;

@@ -14,11 +14,12 @@ function HW5() {
     return (
         <HashRouter>
             {/*в gh-pages лучше работает HashRouter, с BrowserRouter скорее всего не пройдёт тест*/}
-            <div id={s.wrapper}>
+            <div className={s.App}>
                 <Layout>
                     <Pages />
                 </Layout>
             </div>
+
         </HashRouter>
     )
 }

@@ -62,7 +62,7 @@ function HW2() {
     }
 
     return (
-        <div className={s2.hw2} >
+        <div>
             <h2 className={s2.hwTitle} id={s2.wrapper}>Hometask #2</h2>
             <BorderTitle/>
             <div className={s.hw} id={s2.wrapper}>
@@ -73,6 +73,7 @@ function HW2() {
                     filter={filter}
                 />
             </div>
+            <BorderTitle marginTop={'32px'}/>
         </div>
     )
 }

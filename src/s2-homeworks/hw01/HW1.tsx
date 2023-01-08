@@ -73,6 +73,7 @@ const HW1 = () => {
                     <MessageSender M={Message} />
                 </div>
             </div>
+            <BorderTitle marginTop={'32px'}/>
         </div>
     )
 }
