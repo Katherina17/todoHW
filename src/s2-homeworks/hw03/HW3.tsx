@@ -42,21 +42,21 @@ const HW3 = () => {
     }
 
     return (
-        <div className={s2.hw3} id={'hw3'}>
-            <div className={s2.hwTitle} id={s2.wrapper}>Homework #3</div>
-            <BorderTitle/>
-            {/*для автоматической проверки дз (не менять)*/}
+        <div className={s2.App}>
+            <div className={s2.hw3} id={'hw3'}>
+                <div className={s2.hwTitle} id={s2.wrapper}>Homework #3</div>
+                <BorderTitle/>
+                {/*для автоматической проверки дз (не менять)*/}
 
-            <div id={s2.wrapper}>
-                <GreetingContainer
-                    users={users}
-                    addUserCallback={addUserCallback}
-                />
+                <div id={s2.wrapper}>
+                    <GreetingContainer
+                        users={users}
+                        addUserCallback={addUserCallback}
+                    />
+                </div>
             </div>
             <BorderTitle marginTop={'204px'}/>
         </div>
-
-
     )
 }
 

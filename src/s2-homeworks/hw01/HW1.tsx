@@ -58,7 +58,7 @@ export const friendMessage0: MessageType = {
 
 const HW1 = () => {
     return (
-        <div id={s3.hw1}>
+        <div id={s3.hw1} className={s2.App}>
             <h1 className={s2.hwTitle} id={s2.wrapper}> Hometask №1</h1>
             <BorderTitle/>
             <div className={s3.wrapper}>

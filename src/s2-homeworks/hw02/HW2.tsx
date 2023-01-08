@@ -62,7 +62,7 @@ function HW2() {
     }
 
     return (
-        <div>
+        <div className={s2.App}>
             <h2 className={s2.hwTitle} id={s2.wrapper}>Hometask #2</h2>
             <BorderTitle/>
             <div className={s.hw} id={s2.wrapper}>
@@ -72,6 +72,7 @@ function HW2() {
                     deleteAffairCallback={deleteAffairCallback}
                     filter={filter}
                 />
+
             </div>
             <BorderTitle marginTop={'32px'}/>
         </div>
