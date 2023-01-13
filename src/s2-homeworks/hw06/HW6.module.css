@@ -1,5 +1,17 @@
+
+#hw6{
+    margin-top: 47px;
+}
+
 .buttonsContainer {
+    width: 100%;
+    margin-bottom: 235px;
 }
 
 .editableSpanContainer {
+    margin-bottom: 24px;
+}
+
+.button{
+    margin-right: 1.71rem;
 }
