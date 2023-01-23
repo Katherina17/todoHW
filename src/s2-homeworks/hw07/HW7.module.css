@@ -1,2 +1,5 @@
 .container {
+    display: flex;
+    width: 35.36rem;
+    justify-content: space-between;
 }

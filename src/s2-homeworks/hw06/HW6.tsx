@@ -59,7 +59,7 @@ const HW6 = () => {
                     </SuperButton>
                 </div>
             </div>
-            <BorderTitle/>
+            <BorderTitle marginBottom={'39px'}/>
         </div>
     )
 }
