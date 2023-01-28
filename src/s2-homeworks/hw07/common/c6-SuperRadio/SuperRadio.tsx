@@ -56,6 +56,7 @@ const SuperRadio: React.FC<SuperRadioPropsType> = ({
                       onChange={onChangeCallback}
                       {...restProps}
                   />
+                  <span className={s.fakeCheckBox}> </span>
                   <span
                       id={id + '-span-' + o.id}
                       {...spanProps}

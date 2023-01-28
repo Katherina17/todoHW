@@ -1,36 +1,68 @@
 .select {
     border: 1px solid #C2C2C2;
     border-radius: 2px;
-    height: 24px;
+    height: 27px;
     width: 165px;
     padding: 2px 0 5px 10px;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.select:focus > .option:hover{
-    background: white !important;
-    color: #0066CC;
+.selectActive:focus{
+    border: 2px solid rgb(25, 118, 210);
+    outline: none;
 }
 
-.option{
-    border: 2px solid #C2C2C2;
+.modalSelectValues{
+    width: 165px;
+    border: 1px solid #C2C2C2;
     height: 84px;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    padding: 2px 0 5px 10px;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
 }
 
-.option:checked{
+.arrow{
+    background-image: url("chevron-down.svg");
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+}
+
+.arrowActive{
+    background-image: url("chevron-down.svg");
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    transform: rotate(180deg);
+}
+
+.modalSelectValues p:hover{
+    color: #0066CC;
+    cursor: pointer;
+}
+
+.modalSelectValues p{
+    cursor: pointer;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    padding: 2px 0 5px 10px;
+}
+
+.targetItem{
     background: #0066CC;
     color: white;
-    padding: 2px 0 5px 10px;
 }
 
-.option:hover {
-    background: white;
-    color: #0066CC;
+.targetItem:hover {
+    color: white !important;
 }
