@@ -1,23 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Roboto&display=swap');
+
 .item {
+    border-bottom: solid 1px #E5E5E5;
 }
 
 .item:last-of-type {
+    border-bottom: none;
 }
 
 .users {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    border-spacing: 0;
+    border-collapse: collapse;
 }
 
 .buttonsContainer {
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    max-width: 43.28rem;
 }
 
 .thead {
+    background: #E5E5E5;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
 }
 
 .nameCol {
+    padding: 17px 0 9px 11px;
+    width: 50%;
 }
 
 .ageCol {
+    font-weight: 600;
 }

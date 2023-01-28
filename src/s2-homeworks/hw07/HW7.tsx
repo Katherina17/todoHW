@@ -22,7 +22,7 @@ const HW7 = () => {
     const [value, onChangeOption] = useState(1) // селект и радио должны работать синхронно
     return (
         <div id={'hw7'}>
-            <div className={s2.hwTitle} id={s2.wrapper}>Homework #7</div>
+            <div className={s2.hwTitle} id={s2.wrapper}>Hometask #7</div>
             <BorderTitle marginBottom={'32px'}/>
 
             {/*демонстрация возможностей компонент:*/}
@@ -47,6 +47,7 @@ const HW7 = () => {
                     </div>
                 </div>
             </div>
+            <BorderTitle marginBottom={'32px'}/>
         </div>
     )
 }
