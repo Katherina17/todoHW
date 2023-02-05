@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/todoHW/static/css/main.245ecc0e.css",
-    "main.js": "/todoHW/static/js/main.edf82d2a.js",
+    "main.js": "/todoHW/static/js/main.a7c80fbc.js",
     "static/js/787.66cb4309.chunk.js": "/todoHW/static/js/787.66cb4309.chunk.js",
     "static/media/avatar.png": "/todoHW/static/media/avatar.d947cb9d0d13765666b6.png",
     "static/media/404.svg": "/todoHW/static/media/404.9ec31c0ba8d95b0480272e46af98c955.svg",
@@ -12,11 +12,11 @@
     "index.html": "/todoHW/index.html",
     "static/media/burger.svg": "/todoHW/static/media/burger.700e416f7bfe3697f96b36c778d25355.svg",
     "main.245ecc0e.css.map": "/todoHW/static/css/main.245ecc0e.css.map",
-    "main.edf82d2a.js.map": "/todoHW/static/js/main.edf82d2a.js.map",
+    "main.a7c80fbc.js.map": "/todoHW/static/js/main.a7c80fbc.js.map",
     "787.66cb4309.chunk.js.map": "/todoHW/static/js/787.66cb4309.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.245ecc0e.css",
-    "static/js/main.edf82d2a.js"
+    "static/js/main.a7c80fbc.js"
   ]
 }
