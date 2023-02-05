@@ -96,7 +96,7 @@ const HW8 = () => {
                     </table>
                 </div>
             </div>
-            <BorderTitle marginTop={'43px'}/>
+            <BorderTitle marginTop={'43px'} marginBottom={'36px'}/>
         </div>
     )
 }
