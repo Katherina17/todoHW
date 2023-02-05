@@ -2,6 +2,15 @@
     display: flex;
     width: 35.36rem;
     justify-content: space-between;
-    height: 304px;
+    max-height: 304px;
 }
 
+@media (max-width: 550px) {
+    .container {
+        width: 100%;
+        flex-direction: column;
+        height: 270px;
+        align-items: center;
+
+    }
+}

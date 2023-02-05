@@ -5,9 +5,6 @@
     z-index: 2;
     flex-direction: column;
     padding: 16px 24px 0 0;
-    /*
-    width: 22.65rem;
-    */
     width: 25%;
     top: 0;
     left: 0;
@@ -70,3 +67,15 @@
     height: 24px;
     width: 24px;
 }
+
+@media (max-width: 790px) {
+    .sidebar{
+        width: 70%;
+    }
+}
+@media (max-width: 360px) {
+    .sidebar{
+        width: 100%;
+    }
+}
+

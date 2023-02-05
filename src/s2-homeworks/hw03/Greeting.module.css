@@ -41,13 +41,6 @@
 
 }
 
-.button:focus {
-}
-
-.button:active {
-
-}
-
 .button:disabled {
     opacity: 0.5;
 }
@@ -72,7 +65,7 @@
     border: 1px solid #D1D1D1;
     border-radius: 2px;
     height: 36px;
-    width: 26.57rem;
+    max-width: 26.57rem;
     margin-right: 12px;
     font-weight: 500;
     font-size: 16px;

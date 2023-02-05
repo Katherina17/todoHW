@@ -24,5 +24,27 @@
 .hwContainer{
     display: flex;
     justify-content: space-between;
+}
+
+@media (max-width: 640px) {
+    .hwContainer{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .inputs{
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .buttons{
+        margin-bottom: 20px;
+    }
+
+    .checkboxes {
+        gap: 36px;
+        flex-direction: row;
+    }
 
 }

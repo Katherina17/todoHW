@@ -1,13 +1,19 @@
 import React, {useState} from 'react'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import {restoreState} from '../hw06/localStorage/localStorage'
-import s from './Clock.module.css'
+import s from './Clock.module.css';
+import {useAutoAnimate} from "@formkit/auto-animate/react";
+
 
 function Clock() {
     const [timerId, setTimerId] = useState<number | undefined>(undefined)
     const [date, setDate] = useState<Date>(new Date(restoreState('hw9-date', Date.now())))
     const [show, setShow] = useState<boolean>(false)
-    const [isActive, setActive] = useState<boolean>(false)
+    const [isActive, setActive] = useState<boolean>(false);
+    const [listRef] = useAutoAnimate<HTMLDivElement>({
+        duration: 150,
+        easing: 'ease-in-out'
+    });
     const start = () => {
         setTimerId(+setInterval( () => {
             setDate(new Date())
@@ -59,11 +65,11 @@ function Clock() {
             </div>
 
             <div id={'hw9-more'}>
-                <div className={s.more}>
+                <div className={s.more} ref={listRef}>
                     {show ? (
                         <>
-                            <span id={'hw9-month'}>{stringDate}</span>,{' '}
-                            <span id={'hw9-date'}>{stringMonth}</span>
+                            <span id={'hw9-date'}>{stringDate}</span>,  {' '}
+                            <span id={'hw9-month'}>{stringMonth}</span>
                         </>
                     ) : (
                         <>

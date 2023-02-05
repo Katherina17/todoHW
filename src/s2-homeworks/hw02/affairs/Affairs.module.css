@@ -54,3 +54,22 @@
     flex-wrap: wrap;
     max-width: 450px;
 }
+
+@media (max-width: 380px) {
+    .buttonContainer {
+       flex-direction: column;
+        margin-bottom: 32px;
+        margin-top: 34px;
+        align-items: center;
+    }
+
+    .button{
+        width: 50%;
+    }
+
+    .affairs{
+        width: 100%;
+        justify-content: center;
+    }
+}
+
