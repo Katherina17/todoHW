@@ -5,6 +5,7 @@ import {loadingAC} from './bll/loadingReducer'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import s2 from '../../s1-main/App.module.css'
 import {Loader} from './Loader'
+import {BorderTitle} from "../hw01/border-title/BorderTitle";
 
 /*
 * 1 - в файле loadingReducer.ts дописать типы и логику
@@ -14,20 +15,22 @@ import {Loader} from './Loader'
 * */
 
 const HW10 = () => {
-    // useSelector, useDispatch // пишет студент
-    const isLoading = false
+    let isLoading = useSelector<AppStoreType, boolean>(state => state.loading.isLoading);
+    let dispatch = useDispatch();
 
     const setLoading = () => { // пишет студент // показать крутилку на 1,5 секунд
-        // dispatch
+        dispatch(loadingAC(true))
 
-        // setTimeout
+        setTimeout(() => {
+            dispatch(loadingAC(false))
+        }, 1500)
     }
 
     return (
         <div id={'hw10'}>
-            <div className={s2.hwTitle}>Homework #10</div>
-
-            <div className={s2.hw}>
+            <div className={s2.hwTitle} id={s2.wrapper} style={{marginTop: '47px'}}>Homework #10</div>
+            <BorderTitle marginBottom={'42px'}/>
+            <div className={s2.hw} id={s2.wrapper}>
                 {isLoading ? (
                     <div id={'hw10-loading'}>
                         <Loader/>
