@@ -3,6 +3,8 @@ import s from './HW11.module.css'
 import s2 from '../../s1-main/App.module.css'
 import { restoreState } from '../hw06/localStorage/localStorage'
 import SuperRange from './common/c7-SuperRange/SuperRange'
+import {BorderTitle} from "../hw01/border-title/BorderTitle";
+import {getMouseEventOptions} from "@testing-library/user-event/dist/utils";
 
 /*
 * 1 - передать значения в оба слайдера
@@ -13,34 +15,50 @@ import SuperRange from './common/c7-SuperRange/SuperRange'
 function HW11() {
     // for autotests // не менять // можно подсунуть в локалСторэдж нужные числа, чтоб увидеть как они отображаются
     const [value1, setValue1] = useState(restoreState<number>('hw11-value1', 0))
-    const [value2, setValue2] = useState(restoreState<number>('hw11-value2', 100))
+    const [value2, setValue2] = useState(restoreState<number[]>('hw11-value2', [0,100]))
 
-    const change = (event: any, value: any) => {
+    const change = (event: Event, value: number | number[]) => {
+        if(typeof value !== 'number'){
+            setValue2([value[0], value[1]])
+            setValue1(value[0])
+        } else {
+            setValue1(value)
+        }
         // пишет студент // если пришёл массив - сохранить значения в оба useState, иначе в первый
     }
 
     return (
         <div id={'hw11'}>
-            <div className={s2.hwTitle}>Homework #11</div>
-
-            <div className={s2.hw}>
-                <div className={s.container}>
+            <div className={s2.hwTitle} id={s2.wrapper}>Homework #11</div>
+            <BorderTitle marginBottom={'76px'}/>
+            <div className={s2.hw} id={s2.wrapper}>
+                <div className={s.container} >
                     <div className={s.wrapper}>
                         <span id={'hw11-value'} className={s.number}>{value1}</span>
                         <SuperRange
                             id={'hw11-single-slider'}
+                            value={value1}
+                            onChange={change}
+                            step={1}
+                            max={100}
+                            defaultValue={0}
                             // сделать так чтоб value1 изменялось // пишет студент
 
                         />
                     </div>
                     <div className={s.wrapper}>
-                        <span id={'hw11-value-1'} className={s.number}>{value1}</span>
+                        <span id={'hw11-value-1'} className={s.number}>{value2[0]}</span>
                         <SuperRange
                             id={'hw11-double-slider'}
+                            value={value2}
+                            onChange={change}
+                            step={1}
+                            max={100}
+                            defaultValue={0}
                             // сделать так чтоб value1/2 изменялось // пишет студент
 
                         />
-                        <span id={'hw11-value-2'} className={s.number}>{value2}</span>
+                        <span id={'hw11-value-2'} className={s.number}>{value2[1]}</span>
                     </div>
                 </div>
             </div>

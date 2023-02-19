@@ -44,6 +44,7 @@ const HW10 = () => {
                     </SuperButton>
                 )}
             </div>
+            <BorderTitle marginTop={'264px'} marginBottom={'39px'}/>
         </div>
     )
 }
