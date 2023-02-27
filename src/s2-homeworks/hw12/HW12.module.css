@@ -18,6 +18,9 @@ html {
     color: var(--color);
 }
 
-.select {
-
+.changeTheme{
+    display: inline-block;
+    margin-bottom: 6px;
+    line-height: 17px;
 }
+

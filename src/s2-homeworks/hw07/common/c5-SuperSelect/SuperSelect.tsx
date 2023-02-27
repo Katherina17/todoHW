@@ -46,7 +46,7 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
     }
     return (
         <>
-            <div className={s.select} onClick={onClickHandler} onKeyUp={onKeyUpHandler} tabIndex={0}>
+            <div className={s.select} onClick={onClickHandler} onKeyUp={onKeyUpHandler} tabIndex={0} id={restProps.id}>
                 <span>{currValue && currValue.value}</span>
                 <div className={ isSelectedValue ? s.arrowActive : s.arrow}></div>
             </div>

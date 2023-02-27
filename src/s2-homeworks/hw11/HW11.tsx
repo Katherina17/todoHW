@@ -56,6 +56,7 @@ function HW11() {
                     </div>
                 </div>
             </div>
+            <BorderTitle marginTop={'185px'} marginBottom={'35px'}/>
         </div>
     )
 }

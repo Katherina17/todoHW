@@ -1,4 +1,3 @@
-import s4 from './BorderTitle.module.css';
 
 type BorderTitlePropsType = {
     marginTop?: string,
@@ -7,7 +6,13 @@ type BorderTitlePropsType = {
 
 export const BorderTitle = (props: BorderTitlePropsType) => {
     const{marginTop, marginBottom} = props;
+    const style = {
+        border: '1px solid rgb(217 217 217 / 18%)'
+        ,
+        marginBottom: marginBottom,
+        marginTop: marginTop
+    }
     return (
-        <div className={s4.borderTitle} style={{marginTop: marginTop, marginBottom: marginBottom}}> </div>
+        <div style={style}> </div>
     )
 }
