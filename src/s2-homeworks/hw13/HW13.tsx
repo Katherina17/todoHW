@@ -7,6 +7,7 @@ import success200 from './images/200.svg'
 import error400 from './images/400.svg'
 import error500 from './images/500.svg'
 import errorUnknown from './images/error.svg'
+import {BorderTitle} from "../hw01/border-title/BorderTitle";
 
 /*
 * 1 - дописать функцию send
@@ -19,6 +20,7 @@ const HW13 = () => {
     const [text, setText] = useState('')
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
+    const [disable, setDisable] = useState(false)
 
     const send = (x?: boolean | null) => () => {
         const url =
@@ -30,31 +32,53 @@ const HW13 = () => {
         setImage('')
         setText('')
         setInfo('...loading')
+        setDisable(true)
 
         axios
             .post(url, {success: x})
             .then((res) => {
                 setCode('Код 200!')
                 setImage(success200)
+                setDisable(false)
+                setText(res.data.errorText)
+                setInfo(res.data.info)
                 // дописать
 
             })
             .catch((e) => {
-                // дописать
-
+                console.log(e)
+                setDisable(false)
+                if(e.request.status === 500){
+                    setCode('Ошибка 500!')
+                    setText(e.response.data.errorText)
+                    setInfo(e.response.data.info)
+                    setImage(error500)
+                }
+                if(e.request.status === 400){
+                    setCode('Ошибка 400!')
+                    setText(e.response.data.errorText)
+                    setInfo(e.response.data.info)
+                    setImage(error400)
+                } if(e.request.status === 0){
+                    setCode('Error!')
+                    setText(e.message)
+                    setInfo(e.name)
+                    setImage(errorUnknown)
+                }
             })
     }
 
     return (
         <div id={'hw13'}>
-            <div className={s2.hwTitle}>Homework #13</div>
-
-            <div className={s2.hw}>
+            <div className={s2.hwTitle} id={s2.wrapper}>Homework #13</div>
+            <BorderTitle marginBottom={'33px'}/>
+            <div className={s2.hw} id={s2.wrapper}>
                 <div className={s.buttonsContainer}>
                     <SuperButton
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
+                        disabled={disable}
                         // дописать
 
                     >
@@ -64,6 +88,7 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
+                        disabled={disable}
                         // дописать
 
                     >
@@ -73,6 +98,7 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
+                        disabled={disable}
                         // дописать
 
                     >
@@ -82,6 +108,7 @@ const HW13 = () => {
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
+                        disabled={disable}
                         // дописать
 
                     >
@@ -107,6 +134,7 @@ const HW13 = () => {
                     </div>
                 </div>
             </div>
+            <BorderTitle marginTop={'90px'} marginBottom={'118px'}/>
         </div>
     )
 }

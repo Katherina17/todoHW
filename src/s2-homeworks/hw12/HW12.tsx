@@ -51,7 +51,7 @@ const HW12 = () => {
 
                 />
             </div>
-            <BorderTitle marginTop={'244px'}/>
+            <BorderTitle marginTop={'244px'} marginBottom={'36px'}/>
         </div>
     )
 }
