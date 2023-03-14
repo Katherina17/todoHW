@@ -6,7 +6,6 @@
 }
 
 .responseContainer {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,6 +37,4 @@
 .info {
     line-height: 20px;
     font-size: 16px;
-
-
 }

@@ -134,7 +134,7 @@ const HW13 = () => {
                     </div>
                 </div>
             </div>
-            <BorderTitle marginTop={'90px'} marginBottom={'118px'}/>
+            <BorderTitle marginTop={'90px'} marginBottom={'35px'}/>
         </div>
     )
 }

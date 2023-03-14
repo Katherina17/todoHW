@@ -4,6 +4,7 @@ import s from './HW14.module.css'
 import axios from 'axios'
 import SuperDebouncedInput from './common/c8-SuperDebouncedInput/SuperDebouncedInput'
 import {useSearchParams} from 'react-router-dom'
+import {BorderTitle} from "../hw01/border-title/BorderTitle";
 
 /*
 * 1 - дописать функцию onChangeTextCallback в SuperDebouncedInput
@@ -34,6 +35,10 @@ const HW14 = () => {
         setLoading(true)
         getTechs(value)
             .then((res) => {
+                if(res){
+                    setTechs(res.data.techs)
+                    setLoading(false)
+                }
                 // делает студент
 
                 // сохранить пришедшие данные
@@ -44,6 +49,7 @@ const HW14 = () => {
 
     const onChangeText = (value: string) => {
         setFind(value)
+        setSearchParams(value)
         // делает студент
 
         // добавить/заменить значение в квери урла
@@ -66,14 +72,16 @@ const HW14 = () => {
 
     return (
         <div id={'hw14'}>
-            <div className={s2.hwTitle}>Homework #14</div>
+            <div className={s2.hwTitle} id={s2.wrapper}>Homework #14</div>
+            <BorderTitle marginBottom={'24px'}/>
+            <div className={s2.hw} id={s2.wrapper}>
 
-            <div className={s2.hw}>
                 <SuperDebouncedInput
                     id={'hw14-super-debounced-input'}
                     value={find}
                     onChangeText={onChangeText}
                     onDebouncedChange={sendQuery}
+                    className={s.input}
                 />
 
                 <div id={'hw14-loading'} className={s.loading}>
