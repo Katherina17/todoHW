@@ -90,6 +90,7 @@ const HW14 = () => {
 
                 {mappedTechs}
             </div>
+            <BorderTitle marginBottom={'39px'} marginTop={'110px'}/>
         </div>
     )
 }

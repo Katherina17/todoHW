@@ -1,7 +1,7 @@
 import React, {
     SelectHTMLAttributes,
     DetailedHTMLProps,
-    useState, KeyboardEvent
+    useState, KeyboardEvent, FormEvent, ChangeEvent
 } from 'react'
 import s from './SuperSelect.module.css'
 
@@ -23,43 +23,87 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
     ...restProps
 }) => {
 
-    const [isSelectedValue, setIsSelectedValue] = useState(false);
-    let currValue = options!.find(el => el.id === restProps.value);
-    const onKeyUpHandler = (e: KeyboardEvent<HTMLDivElement>) => {
-        for(let i = 0; i < options!.length; i++){
-            if(e.keyCode === 40 && (currValue && currValue.id) === options![i].id){
-                if(i === options!.length - 1) break
-                if(onChangeOption) onChangeOption(options![i+1].id)
-                break;
-            } else if(e.keyCode === 38 && (currValue && currValue.id) === options![i].id){
-                if(i === 0) break;
-                if(onChangeOption) onChangeOption(options![i-1].id)
-                break;
-            }
-            if(e.code === 'Enter'){
-                setIsSelectedValue(false)
-            }
+    const mappedOptions: any[] = options
+        ? options.map((o) => (
+            <option
+                id={'hw7-option-' + o.id}
+                className={s.option}
+                key={o.id}
+                value={o.id}
+            >
+                {o.value}
+            </option>
+        ))
+        : [] // map options with key
+
+/*    const onChangeCallback = (e: ChangeEvent<HTMLSelectElement>) => {
+        if (onChangeOption) {
+            onChangeOption(Number(e.currentTarget.value))
+        }
+    }*/
+
+
+    const onChangeCallback = (e: ChangeEvent<HTMLSelectElement>) => {
+        if (onChange) {
+            onChange(e)
         }
     }
-    const onClickHandler = () => {
-        setIsSelectedValue(!isSelectedValue)
-    }
+
+
+
+    const finalSelectClassName = s.select + (className ? ' ' + className : '')
+
     return (
-        <>
-            <div className={s.select} onClick={onClickHandler} onKeyUp={onKeyUpHandler} tabIndex={0} id={restProps.id}>
-                <span>{currValue && currValue.value}</span>
-                <div className={ isSelectedValue ? s.arrowActive : s.arrow}></div>
-            </div>
-            <div>
-                {isSelectedValue &&   <ModalSelectValues selectData={options}
-                                                         callBack={onChangeOption}
-                                                         selectedValue={restProps.value}
-                                                         isSelectedValue={isSelectedValue}
-                                                         setIsSelectedValue={setIsSelectedValue}/>
-                }
-            </div>
-        </>
+        <select
+            className={finalSelectClassName}
+            onChange={onChangeCallback}
+            {...restProps}
+        >
+            {mappedOptions}
+        </select>
     )
+}
+
+export default SuperSelect
+
+
+/*const [isSelectedValue, setIsSelectedValue] = useState(false);
+let currValue = options!.find(el => el.id === restProps.value);
+const onKeyUpHandler = (e: KeyboardEvent<HTMLDivElement>) => {
+    for(let i = 0; i < options!.length; i++){
+        if(e.keyCode === 40 && (currValue && currValue.id) === options![i].id){
+            if(i === options!.length - 1) break
+            if(onChangeOption) onChangeOption(options![i+1].id)
+            break;
+        } else if(e.keyCode === 38 && (currValue && currValue.id) === options![i].id){
+            if(i === 0) break;
+            if(onChangeOption) onChangeOption(options![i-1].id)
+            break;
+        }
+        if(e.code === 'Enter'){
+            setIsSelectedValue(false)
+        }
+    }
+}
+const onClickHandler = () => {
+    setIsSelectedValue(!isSelectedValue)
+}
+return (
+    <>
+        <div className={s.select} onClick={onClickHandler} onKeyUp={onKeyUpHandler} tabIndex={0} id={restProps.id}>
+            <span>{currValue && currValue.value}</span>
+            <div className={ isSelectedValue ? s.arrowActive : s.arrow}></div>
+        </div>
+        <div>
+            {isSelectedValue &&   <ModalSelectValues selectData={options}
+                                                     callBack={onChangeOption}
+                                                     selectedValue={restProps.value}
+                                                     isSelectedValue={isSelectedValue}
+                                                     setIsSelectedValue={setIsSelectedValue}/>
+            }
+        </div>
+    </>
+)
 }
 
 type ModalSelectValues = {
@@ -78,8 +122,8 @@ const ModalSelectValues = (props: ModalSelectValues) => {
     const mappedOptions = props.selectData ? props.selectData.map(el => {
             return (
                 <p className={props.selectedValue === el.id ? s.targetItem : ''}
-                     key={el.id}
-                     onClick={() => addCallBacks(el.id)}
+                   key={el.id}
+                   onClick={() => addCallBacks(el.id)}
                    style={{}}
                 >{el.value}</p>
             )
@@ -90,6 +134,5 @@ const ModalSelectValues = (props: ModalSelectValues) => {
             {mappedOptions}
         </div>
     )
-}
+}*/
 
-export default SuperSelect
