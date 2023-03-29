@@ -59,7 +59,6 @@ const HW15 = () => {
                 }
             })
     }
-    console.log(techs)
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
@@ -93,24 +92,28 @@ const HW15 = () => {
         sendQuery({page: String(page), count: String(count), sort: sort})
     }, [count, sort])
 
-    const mappedTechs = techs.map(t => (
+    const mappedTechs = techs.map((t, index) => (
         <div key={t.id} className={s.row}>
-            <div id={'hw15-tech-' + t.id} className={s.tech}>
+            <div id={'hw15-tech-' + t.id} className={techs.length-1 === index ? s.tech + ' ' + s.techWithoutBorder : s.tech}>
                 {t.tech}
             </div>
 
-            <div id={'hw15-developer-' + t.id} className={s.developer}>
+            <div id={'hw15-developer-' + t.id} className={ techs.length-1 === index ? s.tech + ' ' + s.techWithoutBorder : s.tech }>
                 {t.developer}
             </div>
         </div>
+
     ))
 
+    const loadingHeightStyle = {
+        minHeight: count === 10 ? '517px' : count === 7 ? '400px' : '217px'
+    }
+
     return (
-        <div id={'hw15'}>
+        <div id={'hw15'} style={{paddingBottom: '114px'}}>
             <div className={s2.hwTitle} id={s2.wrapper}>Homework #15</div>
             <BorderTitle marginBottom={'32px'}/>
             <div className={s2.hw} id={s2.wrapper}>
-                {idLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
                 <SuperPagination
                     page={page}
                     itemsCountForPage={count}
@@ -118,7 +121,7 @@ const HW15 = () => {
                     onChange={onChangePagination}
                     setCount={setCount}
                 />
-
+                {idLoading && <div className={s.loadingContainer} style={loadingHeightStyle}> <div id={'hw15-loading'} className={s.loading}></div> </div>}
                 <div className={s.rowHeader}>
                     <div className={s.techHeader}>
                         tech
@@ -133,6 +136,7 @@ const HW15 = () => {
 
                 {mappedTechs}
             </div>
+            <BorderTitle marginTop={'112px'}/>
         </div>
     )
 }

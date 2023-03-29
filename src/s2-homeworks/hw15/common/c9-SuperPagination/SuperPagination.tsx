@@ -1,7 +1,8 @@
-import React, {ChangeEvent, useState} from 'react'
+import React, {ChangeEvent} from 'react'
 import SuperSelect from '../../../hw07/common/c5-SuperSelect/SuperSelect'
 import {Pagination} from '@mui/material'
 import s from './SuperPagination.module.css'
+import s2 from '../../HW15.module.css'
 
 export type SuperPaginationPropsType = {
     id?: string
@@ -21,14 +22,12 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
     }
 ) => {
     const lastPage = Math.ceil(totalCount / itemsCountForPage) // пишет студент // вычислить количество страниц
-    const[value, onChangeValue] = useState(itemsCountForPage)
     const onChangeCallback = (event: ChangeEvent<unknown>, page: number) => {
         onChange(page, itemsCountForPage)
     }
 
-    const onChangeSelect = (e: ChangeEvent<HTMLSelectElement>) => {
-        /*onChangeValue(+e.currentTarget.value)*/
-        setCount(+e.currentTarget.value)
+    const onChangeSelect = (num: number) => {
+        setCount(num)
 
     }
 
@@ -37,19 +36,19 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
             <Pagination
                 id={id + '-pagination'}
                 sx={{
-                    // стили для Pagination // пишет студент
+                    '& .Mui-selected': {backgroundColor: '#0066CC', color: 'white'},
+
                 }}
                 page={page}
                 count={lastPage}
                 onChange={onChangeCallback}
                 hideNextButton
                 hidePrevButton
+                shape="rounded"
             />
-
             <span className={s.text1}>
                 показать
             </span>
-
             <SuperSelect
                 id={id + '-pagination-select'}
                 value={itemsCountForPage}
@@ -58,9 +57,10 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
                     {id: 7, value: 7},
                     {id: 10, value: 10},
                 ]}
-                onChange={onChangeSelect}
+                onChangeOption={onChangeSelect}
+                className={s2.selectPagination}
+                modalClassName={s2.modalSelectPagination}
             />
-
             <span className={s.text2}>
                 строк в таблице
             </span>
