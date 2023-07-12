@@ -1,7 +1,7 @@
 import React, {
     SelectHTMLAttributes,
     DetailedHTMLProps,
-    useState, KeyboardEvent, FormEvent, ChangeEvent
+    useState, KeyboardEvent, ChangeEvent
 } from 'react'
 import s from './SuperSelect.module.css'
 
@@ -25,29 +25,25 @@ const SuperSelect: React.FC<SuperSelectPropsType> =
          ...restProps
      }) => {
 
-    const mappedOptions: any[] = options
-        ? options.map((o) => (
-            <option
-                id={'hw7-option-' + o.id}
-                className={s.option}
-                key={o.id}
-                value={o.id}
-            >
-                {o.value}
-            </option>
-        ))
-        : [] // map options with key
-
-    /* const onChangeCallback1 = (e: ChangeEvent<HTMLSelectElement>) => {
-         if (onChangeOption) {
-             onChangeOption(Number(e.currentTarget.value))
-         }
-     }*/
+        const mappedOptions: any[] = options
+            ? options.map((o) => (
+                <option
+                    id={'hw7-option-' + o.id}
+                    className={s.option}
+                    key={o.id}
+                    value={o.id}
+                >
+                    {o.value}
+                </option>
+            ))
+            : [] // map options with key
 
         const finalSelectClassName = s.select + (className ? ' ' + className : '')
         const onChangeCallback = (e: ChangeEvent<HTMLSelectElement>) => {
+
             if (onChange) {
                 onChange(e)
+
             }
             if (onChangeOption) {
                 onChangeOption(Number(e.currentTarget.value))
@@ -55,68 +51,47 @@ const SuperSelect: React.FC<SuperSelectPropsType> =
 
         }
 
-return (
-    <select
-        className={finalSelectClassName}
-        onChange={onChangeCallback}
-        {...restProps}
-    >
-        {mappedOptions}
-    </select>
-)
- /*   const finalSelectClassName = s.select + (className ? ' ' + className : '')
-    const finalModalClassName = s.modalSelectValues + (restProps.modalClassName !== undefined ? ' ' + restProps.modalClassName : '')
+        const finalModalClassName = s.modalSelectValues + (restProps.modalClassName !== undefined ? ' ' + restProps.modalClassName : '')
 
-    const onChangeCallback = (e: ChangeEvent<HTMLSelectElement>) => {
-        if (onChange) {
-            onChange(e)
-        }
-        if (onChangeOption) {
-            onChangeOption(Number(e.currentTarget.value))
-        }
-
-    }
-
-
-    const [isSelectedValue, setIsSelectedValue] = useState(false);
-    let currValue = options!.find(el => el.id === restProps.value);
-    const onKeyUpHandler = (e: KeyboardEvent<HTMLDivElement>) => {
-        for (let i = 0; i < options!.length; i++) {
-            if (e.keyCode === 40 && (currValue && currValue.id) === options![i].id) {
-                if (i === options!.length - 1) break
-                if (onChangeCallback) onChangeCallback(options![i + 1].id)
-                break;
-            } else if (e.keyCode === 38 && (currValue && currValue.id) === options![i].id) {
-                if (i === 0) break;
-                if (onChangeCallback) onChangeCallback(options![i - 1].id)
-                break;
-            }
-            if (e.code === 'Enter') {
-                setIsSelectedValue(false)
-            }
-        }
-    }
-    const onClickHandler = () => setIsSelectedValue(!isSelectedValue)
-    return (
-        <>
-            <div className={finalSelectClassName} onClick={onClickHandler} onKeyUp={onKeyUpHandler} tabIndex={0}
-                 id={restProps.id}>
-                <span>{currValue && currValue.value}</span>
-                <div className={isSelectedValue ? s.arrowActive : s.arrow}></div>
-            </div>
-            <div>
-                {isSelectedValue && <ModalSelectValues selectData={options}
-                                                       callBack={onChangeOption}
-                                                       selectedValue={restProps.value}
-                                                       isSelectedValue={isSelectedValue}
-                                                       setIsSelectedValue={setIsSelectedValue}
-                                                       finalModalClassName={finalModalClassName}
-                />
+        const [isSelectedValue, setIsSelectedValue] = useState(false);
+        let currValue = options!.find(el => el.id === restProps.value);
+        const onKeyUpHandler = (e: KeyboardEvent<HTMLDivElement>) => {
+            for (let i = 0; i < options!.length; i++) {
+                if (e.keyCode === 40 && (currValue && currValue.id) === options![i].id) {
+                    if (i === options!.length - 1) break
+                    if (onChangeCallback) onChangeCallback(options![i + 1].id)
+                    break;
+                } else if (e.keyCode === 38 && (currValue && currValue.id) === options![i].id) {
+                    if (i === 0) break;
+                    if (onChangeCallback) onChangeCallback(options![i - 1].id)
+                    break;
                 }
-            </div>*/
-       /* </>
-    )*/
-}
+                if (e.code === 'Enter') {
+                    setIsSelectedValue(false)
+                }
+            }
+        }
+        const onClickHandler = () => setIsSelectedValue(!isSelectedValue)
+        return (
+            <>
+                <div className={finalSelectClassName} onClick={onClickHandler} onKeyUp={onKeyUpHandler} tabIndex={0}
+                     id={restProps.id}>
+                    <span>{currValue && currValue.value}</span>
+                    <div className={isSelectedValue ? s.arrowActive : s.arrow}></div>
+                </div>
+                <div>
+                    {isSelectedValue && <ModalSelectValues selectData={options}
+                                                           callBack={onChangeOption}
+                                                           selectedValue={restProps.value}
+                                                           isSelectedValue={isSelectedValue}
+                                                           setIsSelectedValue={setIsSelectedValue}
+                                                           finalModalClassName={finalModalClassName}
+                    />
+                    }
+                </div>
+            </>
+        )
+    }
 
 type ModalSelectValues = {
     selectData: any[] | undefined;

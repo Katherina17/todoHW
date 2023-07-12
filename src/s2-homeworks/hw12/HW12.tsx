@@ -15,9 +15,9 @@ import {BorderTitle} from "../hw01/border-title/BorderTitle";
 * */
 
 const themes = [
-    {id: 1, value: 'Light'},
-    {id: 2, value: 'Blue'},
-    {id: 3, value: 'Dark'},
+    {id: 1, value: 'light'},
+    {id: 2, value: 'blue'},
+    {id: 3, value: 'dark'},
 ]
 
 const HW12 = () => {
@@ -27,6 +27,7 @@ const HW12 = () => {
     const change = (id: number) => {
         dispatch(changeThemeId(id))
     }
+    console.log(themeId)
 
     useEffect(() => {
         document.documentElement.dataset.theme = themeId + ''
