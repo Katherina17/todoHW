@@ -16,13 +16,14 @@ type SuperSelectPropsType = DefaultSelectPropsType & {
     modalClassName?: string
 }
 
-const SuperSelect: React.FC<SuperSelectPropsType> = ({
-                                                         options,
-                                                         className,
-                                                         onChange,
-                                                         onChangeOption,
-                                                         ...restProps
-                                                     }) => {
+const SuperSelect: React.FC<SuperSelectPropsType> =
+    ({
+         options,
+         className,
+         onChange,
+         onChangeOption,
+         ...restProps
+     }) => {
 
     const mappedOptions: any[] = options
         ? options.map((o) => (
@@ -43,11 +44,30 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
          }
      }*/
 
-    const finalSelectClassName = s.select + (className ? ' ' + className : '')
-    const finalModalClassName = s.modalSelectValues + (restProps.modalClassName !== undefined ? ' ' + restProps.modalClassName  : '')
+        const finalSelectClassName = s.select + (className ? ' ' + className : '')
+        const onChangeCallback = (e: ChangeEvent<HTMLSelectElement>) => {
+            if (onChange) {
+                onChange(e)
+            }
+            if (onChangeOption) {
+                onChangeOption(Number(e.currentTarget.value))
+            }
+
+        }
+
+return (
+    <select
+        className={finalSelectClassName}
+        onChange={onChangeCallback}
+        {...restProps}
+    >
+        {mappedOptions}
+    </select>
+)
+ /*   const finalSelectClassName = s.select + (className ? ' ' + className : '')
+    const finalModalClassName = s.modalSelectValues + (restProps.modalClassName !== undefined ? ' ' + restProps.modalClassName : '')
 
     const onChangeCallback = (e: ChangeEvent<HTMLSelectElement>) => {
-        debugger
         if (onChange) {
             onChange(e)
         }
@@ -76,12 +96,11 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
             }
         }
     }
-    const onClickHandler = () => {
-        setIsSelectedValue(!isSelectedValue)
-    }
+    const onClickHandler = () => setIsSelectedValue(!isSelectedValue)
     return (
         <>
-            <div className={finalSelectClassName } onClick={onClickHandler} onKeyUp={onKeyUpHandler} tabIndex={0} id={restProps.id}>
+            <div className={finalSelectClassName} onClick={onClickHandler} onKeyUp={onKeyUpHandler} tabIndex={0}
+                 id={restProps.id}>
                 <span>{currValue && currValue.value}</span>
                 <div className={isSelectedValue ? s.arrowActive : s.arrow}></div>
             </div>
@@ -94,9 +113,9 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
                                                        finalModalClassName={finalModalClassName}
                 />
                 }
-            </div>
-        </>
-    )
+            </div>*/
+       /* </>
+    )*/
 }
 
 type ModalSelectValues = {
